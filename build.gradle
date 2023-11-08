@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.10.0'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group = 'ru.solonin'
+version = '1.0-SNAPSHOT'
 
 allure {
     report {
@@ -25,18 +25,18 @@ repositories {
 }
 
 dependencies {
-    testImplementation(
-
-        'io.qameta.allure:allure-selenide:2.19.0',
-        'org.junit.jupiter:junit-jupiter:5.10.0',
-        'com.codeborne:selenide:6.18.0',
-        'org.jetbrains:annotations:24.0.0'
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'org.testng:testng:7.1.0'
+    testImplementation (
+        "com.codeborne:selenide:6.16.0",
+        "org.junit.jupiter:junit-jupiter:5.9.3",
+        'io.qameta.allure:allure-selenide:2.19.0'
     )
-
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.10.0')
+    testRuntimeOnly (
+        "org.slf4j:slf4j-simple:1.7.29")
 }
+
 
 test {
     useJUnitPlatform()
-    systemProperties(System.getProperties())
 }

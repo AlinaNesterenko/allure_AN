@@ -1,4 +1,4 @@
-package allureTestReports;
+package alluretestreports;
 
 import org.junit.jupiter.api.Test;
 

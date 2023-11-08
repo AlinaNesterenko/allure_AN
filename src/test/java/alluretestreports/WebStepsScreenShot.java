@@ -1,4 +1,4 @@
-package allureTestReports;
+package alluretestreports;
 
 import java.nio.charset.StandardCharsets;
 

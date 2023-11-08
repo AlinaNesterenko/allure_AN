@@ -1,4 +1,4 @@
-package allureTestReports;
+package alluretestreports;
 
 import io.qameta.allure.Step;
 

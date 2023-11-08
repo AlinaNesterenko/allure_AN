@@ -1,4 +1,4 @@
-package allureTestReports;
+package alluretestreports;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,5 +25,4 @@ public class TestBase {
   void afterEach() {
     Selenide.closeWebDriver();
   }
-
 }
