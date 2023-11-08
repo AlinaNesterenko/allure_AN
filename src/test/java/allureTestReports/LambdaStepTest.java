@@ -1,6 +1,8 @@
 package allureTestReports;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
 
 import io.qameta.allure.selenide.AllureSelenide;
@@ -13,29 +15,27 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 
-public class LambdaStepTest extends TestBase  {
+public class LambdaStepTest extends TestBase {
 
- @CsvFileSource(resources = "/paramForCalc.csv")
-
-
+  @CsvFileSource(resources = "/paramForCalc.csv")
   @ParameterizedTest
-  void successfulSearchTest(String sum, String plan, String result){
+  void successfulSearchTest(String sum, String plan, String result) {
 
-      SelenideLogger.addListener("allure", new AllureSelenide());
+    SelenideLogger.addListener("allure", new AllureSelenide());
 
-      step ("Устанавливаем страховую сумму", () -> {
-        $(".formText").click();
-        $(".formText").setValue(sum);
-      });
-    step ("Выбираем вариант страхования", () -> {
-        $(".chzn-container").click();
-        $(".chzn-results").$(byText(plan)).click();
+    step("Устанавливаем страховую сумму", () -> {
+      $(".formText").click();
+      $(".formText").setValue(sum);
     });
-    step ("Подтверждаем заполнение", () -> {
-        $(".formSub").click();
+    step("Выбираем вариант страхования", () -> {
+      $(".chzn-container").click();
+      $(".chzn-results").$(byText(plan)).click();
     });
-    step ("Сравниваем полученную сумму", () ->{
-        $$(".infoblock").findBy(text(result)).shouldBe(visible);
+    step("Подтверждаем заполнение", () -> {
+      $(".formSub").click();
+    });
+    step("Сравниваем полученную сумму", () -> {
+      $$(".infoblock").findBy(text(result)).shouldBe(visible);
     });
 
   }
