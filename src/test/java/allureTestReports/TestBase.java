@@ -11,17 +11,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
-@BeforeAll
-static void beforeAll() {
-  Configuration.pageLoadStrategy = "eager";
-}
+  @BeforeAll
+  static void beforeAll() {
+    Configuration.pageLoadStrategy = "eager";
+  }
 
   @BeforeEach
   void beforeEach() {
     open("https://bgs.by/calc/medical/occur/");
   }
+
   @AfterEach
-  void afterEach(){
+  void afterEach() {
     Selenide.closeWebDriver();
   }
 
